@@ -1,0 +1,31 @@
+Random Enable
+
+// @input SceneObject[] items
+// @input bool random
+
+ 
+var currentItemIndex = -1;
+ 
+function onTap( eventData )
+{
+    script.items[currentItemIndex].enabled = false;
+    incrementItemIndex();
+    script.items[currentItemIndex].enabled = true;
+ 
+}
+ 
+var tapEvent = script.createEvent("TapEvent");
+tapEvent.bind(onTap); 
+ 
+function incrementItemIndex()
+{
+    if( !script.random ) 
+    {
+        currentItemIndex = currentItemIndex + 1;
+        currentItemIndex = currentItemIndex % script.items.length;
+    }
+    else
+    {
+        currentItemIndex = Math.floor( Math.random() * script.items.length );
+    }
+}
