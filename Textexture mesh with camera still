@@ -1,0 +1,8 @@
+Texture mesh with camera still
+
+// Takes a screenshot of device camera input and applies it to meshVisual
+//@input Asset.Texture deviceCameraTexture
+//@input Component.MeshVisual meshVisual
+
+var textureCopy = script.deviceCameraTexture.copyFrame();
+script.meshVisual.mainPass.baseTex = textureCopy;
